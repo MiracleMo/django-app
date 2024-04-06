@@ -1,0 +1,7 @@
+**/__pycache__
+
+# Docker
+Dockerfile
+compose.yaml
+.dockerignore
+db.sqlite3
