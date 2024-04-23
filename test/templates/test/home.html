@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'test/base_style.css' %}">
+<script src="{% static 'test/add_todo_task.js' %}"></script>
+<h1> Best ToDo App</h1>
+
+<div class="sideBarL">
+
+</div>
+
+<div class="middleBar">
+    <form action="{% url 'test:home' %}" method="post">
+        {% csrf_token %}
+
+        <input type="text" id="quick_todo_input" name="quick_todo_input"><br>
+        <label for="input_todo_task">Add quick todo</label><br>
+
+        <input type="button" onclick="add_quick_todo_task()" value="add_todo">
+    </form>
+</div>
+
+
+<div class="sideBarR">
+test
+</div>
+
+

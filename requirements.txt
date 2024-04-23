@@ -1,3 +1,4 @@
 Django==5.0.3
 django-debug-toolbar==4.3.0
 wagtail==6.0.2
+psycopg[binary]==3.1.12
