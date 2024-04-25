@@ -26,7 +26,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("polls/", include("polls.urls")),
+    #path("polls/", include("polls.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
     path('', include('test.urls')),
 

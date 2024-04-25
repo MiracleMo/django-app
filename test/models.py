@@ -27,7 +27,7 @@ class ToDoItem(models.Model):
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse("item-update", args=[str(self.todo_list.id), str(self.id)]
+        return reverse("test:item-update", args=[str(self.todo_list.id), str(self.id)]
         )
 
     def __str__(self):
@@ -39,7 +39,6 @@ class ToDoItem(models.Model):
 
 
 
-# Create your models here.
 class ToDo_task(models.Model):
     toDo_task_text = models.CharField(max_length=200)
 

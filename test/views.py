@@ -6,12 +6,12 @@ from .models import ToDoList, ToDoItem
 from django.urls import reverse
 
 # Create your views here.
-def add_quick_todo_task(request, todo_task):
+#def add_quick_todo_task(request, todo_task):
 
-    return HttpResponseRedirect("placeholder")
+    #return HttpResponseRedirect("placeholder")
 
-def home(request):
-    return render(request, 'test/home.html')
+#def home(request):
+    #return render(request, 'test/home.html')
     #return HttpResponseRedirect("placeholder")
 
 
@@ -26,16 +26,16 @@ class ItemListView(ListView):
     def get_queryset(self):
         return ToDoItem.objects.filter(todo_list_id=self.kwargs["list_id"])
 
-    def get_context_data(self):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data()
-        context["test"] = ToDoList.objects.get(id=self.kwargs["list_id"])
+        context["todo_list"] = ToDoList.objects.get(id=self.kwargs["list_id"])
         return context
     
 class ListCreate(CreateView):
     model = ToDoList
     fields = ["title"]
 
-    def get_context_data(self):
+    def get_context_data(self, **kwargs):
         context = super(ListCreate, self).get_context_data()
         context["title"] = "Add a new list"
         return context
@@ -63,7 +63,7 @@ class ItemCreate(CreateView):
         return context
 
     def get_success_url(self):
-        return reverse("list", args=[self.object.todo_list_id])
+        return reverse("test:list", args=[self.object.todo_list_id])
 
 class ItemUpdate(UpdateView):
     model = ToDoItem
@@ -81,4 +81,4 @@ class ItemUpdate(UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse("list", args=[self.object.todo_list_id])
+        return reverse("test:list", args=[self.object.todo_list_id])
