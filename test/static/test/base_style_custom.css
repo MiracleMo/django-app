@@ -1,0 +1,60 @@
+
+
+
+ul li{
+    
+    list-style-position: outside;
+    list-style-type: square;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: grab;
+}
+
+.sortable-list {
+    margin: 0 auto;
+}
+.sortable-list .item{
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.item .details {
+    display: flex;
+    align-items: center;
+}
+.item .details img{
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.item.dragging :where(.details) {
+    opacity: 0;
+}
+
+div[role=button]{  
+    
+    width: 50em;
+    max-width: 50em;
+    text-align:left;
+    border-radius: 10px;
+    text-indent: 0.1em;
+    display: inline-block;
+}
+
+.countTasks {
+    
+    width: 9%;
+    
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
