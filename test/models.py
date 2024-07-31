@@ -1,9 +1,12 @@
 import datetime
 from django.contrib import admin
 
+
+
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+
 
 
 # todo_list/todo_app/models.py
@@ -33,8 +36,8 @@ class ToDoItem(models.Model):
     def __str__(self):
         return f"{self.title}: due {self.due_date}"
 
-    class Meta:
-        ordering = ["due_date"]
+    """class Meta:
+        ordering = ["due_date"]"""
 
 
 

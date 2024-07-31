@@ -4,23 +4,43 @@
 {% block content %}
 <!--index.html-->
 {% if object_list %}
-<h3>All my lists</h3>
+<div class="content">
+    <h3 class="title is-3">All my lists</h3>
+</div>   
 {% endif %}
-<ul>
-    {% for todolist in object_list %}
-    <li>
-        <div
-            role="button"
-            onclick="location.href='{% url "test:list" todolist.id %}'">
-            {{ todolist.title }}
-        </div>
-    </li>
-    {% empty %}
-    <h4>You have no lists!</h4>
-    {% endfor %}
-</ul>
+<div class="content">
+    <ul>
+        {% for todolist in object_list %} 
+        <li class="flex-container">
+            <div
+                role="button"
+                class="button is-white is-dark"
+                onclick="location.href='{% url "test:list" todolist.id %}'">
+                <div class="flex-container">
+                    <div >
+                        {{ todolist.title }}
+                    </div>
+
+                    <div >
+                        {% for number in number_of_items %}
+                            {% if number.id == todolist.id %}
+                                ({{number.todoitem__count}})
+                            {% endif%}
+            
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </li>
+        {% empty %}
+        <h4>You have no lists!</h4>
+        {% endfor %} 
+    </ul>
+</div>
 <p>
-    <input
+    <input 
+    class="button is-primary is-outlined"
         value="Add a new list"
         type="button"
         onclick="location.href='{% url "test:list-add" %}'"/>

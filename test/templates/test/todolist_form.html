@@ -4,18 +4,21 @@
 
 {% block content %}
 
-<h3>{{ title }}</h3>
+<h3 class="title is-3">{{ title }}</h3>
 <div>
-    <div>
+    <div class="content">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input
                 value="Save"
-                type="submit">
+                type="submit"
+                class="button is-primary is-dark is-outlined"
+                onclick="location.href='{% url "test:index" %}';">
             <input
                 value="Cancel"
                 type="button"
+                class="button is-primary is-dark is-outlined"
                 onclick="location.href='{% url "test:index" %}';">
         </form>
     </div>

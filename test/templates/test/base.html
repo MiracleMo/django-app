@@ -1,7 +1,7 @@
 <!-- todo_list/todo_app/templates/base.html -->
 <!-- Base template -->
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <!-- Required meta tags -->
@@ -9,21 +9,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Simple.css-->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'test/base_style.css' %}">
+     <!--<link rel="stylesheet" href="{% static 'test/base_style_simple.css' %}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'test/base_style_custom.css' %}">
+    <script src="https://kit.fontawesome.com/7535ad7272.js" crossorigin="anonymous"></script>
     <title>Django To-do Lists</title>
 </head>
 
-<body>
-    <div>
-        <h1 onclick="location.href='{% url "test:index" %}'">
-            Django To-do Lists
-        </h1>
-    </div>
-    <div>
+
+
+<body >
+    <nav class="navbar is-primary" role="navigation">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar=item has-text-white" onclick="location.href='{% url "test:index" %}'">
+                    <i class="fas fa-tasks" > </i><br>
+                    TodoList
+                </a>
+
+                <a class="navbar-item has-text-white">
+                    Shopping List
+                </a>
+                <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
         {% block content %}
         This content will be replaced by different html code for each page.
         {% endblock %}
     </div>
 </body>
-
 </html>
